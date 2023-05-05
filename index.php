@@ -9,12 +9,12 @@
     <title>Document</title>
 </head>
 <body>
-<h1>
+<h1 class="text-center mt-5">
     <a href="authentification.php">Authentification</a>
 </h1>
 </body>
 </html>
 
-<?php ob_get_clean();
-require 'template.php';
+<?php $content = ob_get_clean();
+require "template.php";
 ?>

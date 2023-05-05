@@ -1,3 +1,5 @@
+<?php ob_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-<div class = "justify-content align-items text-center text-white bg-dark mt-5 col-3">
+<div class="justify-content-center row">
+<div class = "text-center text-white bg-dark mt-5 col-3">
     <form action="authentification.php" method="POST">
         <!-- <label class="text-center mt-5" for="email">Email</label>
         <input type="email" id="email" name="email" required><br><br> -->
@@ -16,13 +19,14 @@
         <input type="text" id="id" name="id" required><br><br>
         <input type="submit" value="Envoyer" class="mb-5">
     </form>
-    <h1>
+</div>   
+    <h1 class = "justify-content-center row">
         <?php
-            $id = $_POST['id'];
+            $id = $_POST["id"];
             // je récupère
 
             $pattern = '[^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|-|"|#|\')).{8,}$]';
-            
+
             if(preg_match($pattern, $id)){
                 echo "Le mot de passe est valide.";
             } else {
@@ -33,3 +37,7 @@
 </div>
 </body>
 </html>
+
+<?php $content = ob_get_clean();
+require "template.php";
+?>
